@@ -28,17 +28,15 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.only(right: 16),
+              padding: EdgeInsets.fromLTRB(0, 19, 16, 17),
               child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 16),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(9),
                     border: Border.all(width: 2, color: Colors.grey)),
                 height: 60,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SvgPicture.asset('assets/icons/magic.png'),
                     Text(
                       "Сүйікті ертегілер",
                       style: TextStyle(

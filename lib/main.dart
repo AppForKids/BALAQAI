@@ -77,8 +77,13 @@ class _MyHomePageState extends State<MyHomePage> {
         items: [
           BottomNavigationBarItem(
               icon: Image.asset(
-                height: 25,
-                'assets/icons/user.png',
+                height: 24,
+                'assets/icons/home.png',
+                color: Colors.white,
+              ),
+              activeIcon: Image.asset(
+                height: 24,
+                'assets/icons/home2.png',
                 color: Colors.white,
               ),
               label: 'Басты бет'),
