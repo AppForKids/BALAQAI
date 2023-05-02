@@ -12,4 +12,6 @@ class ColorStyles {
   static const verticalDividerColor = Color(0xff9FAEB3);
 
   static const textDarkBlueColor = Color(0xff0596D5);
+
+  static const redColor = Color(0xffFF0000);
 }
