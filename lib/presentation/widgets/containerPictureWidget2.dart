@@ -1,4 +1,6 @@
+import 'package:application/presentation/widgets/youtubePlayer.dart';
 import 'package:flutter/material.dart';
+
 import '../../core/colorStyles_const.dart';
 import '../../core/textStyles_const.dart';
 
@@ -10,26 +12,32 @@ class ContainerPictureWidget2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(bottom: 8.0),
-          child: Container(
-            width: 200,
-            height: 120,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                  imgUrl,
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => PlayYTVideo()));
+      },
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
+            child: Container(
+              width: 200,
+              height: 120,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    imgUrl,
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-        Text(title,
-            style: TextStyles.greyDarkRegularStyle
-                .copyWith(fontSize: 14, color: ColorStyles.textHeader))
-      ],
+          Text(title,
+              style: TextStyles.greyDarkRegularStyle
+                  .copyWith(fontSize: 14, color: ColorStyles.textHeader))
+        ],
+      ),
     );
   }
 }

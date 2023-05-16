@@ -17,7 +17,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  static final List<Widget> _widgetOptions = <Widget>[
+  int _currentIndex = 0;
+  final List<Widget> _children = [
     MainScreen(),
     FairyTalesPage(),
     MusicPage(),
@@ -25,62 +26,88 @@ class _HomePageState extends State<HomePage> {
     ProfileScreen(),
   ];
 
-  int _selectedIndex = 0;
-  
-  void _onItemTapped(int index) {
+  void onTappedBar(int index) {
     setState(() {
-      _selectedIndex = index;
+      _currentIndex = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _widgetOptions.elementAt(_selectedIndex),
+      body: _children[_currentIndex],
       // body: MusicPlayer(),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: ColorStyles.appBarColor,
+        onTap: onTappedBar,
+        currentIndex: _currentIndex,
         type: BottomNavigationBarType.fixed,
-        items: const [
+        unselectedLabelStyle: const TextStyle(color: Colors.white),
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.white,
+        selectedFontSize: 12,
+        items: [
           BottomNavigationBarItem(
-            icon: NavBarItemWidget(
-              'assets/icons/mainRectangle.svg',
-              'Басты бет',
-            ),
-            label: '',
-          
-            ),
-            BottomNavigationBarItem(
-            icon: NavBarItemWidget(
-              'assets/icons/mainRectangle.svg',
-              'Ертегілер',
-            ),
-            label: '',
-            ),
-            BottomNavigationBarItem(
-            icon: NavBarItemWidget(
-              'assets/icons/mainRectangle.svg',
-              'Әндер',
-            ),
-            label: '',
-            ),
-            BottomNavigationBarItem(
-            icon: NavBarItemWidget(
-              'assets/icons/mainRectangle.svg',
-              'Оқу',
-            ),
-            label: '',
-            ),
-            BottomNavigationBarItem(
-            icon: NavBarItemWidget(
-              'assets/icons/profile.svg',
-              'Профиль',
-            ),
-            label: '',
-            ),
+              icon: Image.asset(
+                height: 24,
+                'assets/icons/home.png',
+                color: Colors.white,
+              ),
+              activeIcon: Image.asset(
+                height: 24,
+                'assets/icons/home2.png',
+                color: Colors.white,
+              ),
+              label: 'Басты бет'),
+          BottomNavigationBarItem(
+              icon: Image.asset(
+                height: 25,
+                'assets/icons/star.png',
+                color: Colors.white,
+              ),
+              activeIcon: Image.asset(
+                height: 25,
+                'assets/icons/magic.png',
+                color: Colors.white,
+              ),
+              label: 'Ертегілер'),
+          BottomNavigationBarItem(
+              icon: Image.asset(
+                height: 25,
+                'assets/icons/music.png',
+                color: Colors.white,
+              ),
+              activeIcon: Image.asset(
+                height: 25,
+                'assets/icons/mus.png',
+                color: Colors.white,
+              ),
+              label: 'Әндер'),
+          BottomNavigationBarItem(
+              icon: Image.asset(
+                height: 25,
+                'assets/icons/graduated.png',
+                color: Colors.white,
+              ),
+              activeIcon: Image.asset(
+                height: 25,
+                'assets/icons/grad.png',
+                color: Colors.white,
+              ),
+              label: 'Оқу'),
+          BottomNavigationBarItem(
+              icon: Image.asset(
+                height: 21,
+                'assets/icons/use.png',
+                color: Colors.white,
+              ),
+              activeIcon: Image.asset(
+                height: 21,
+                'assets/icons/user.png',
+                color: Colors.white,
+              ),
+              label: 'Профиль')
         ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
       ),
     );
   }
